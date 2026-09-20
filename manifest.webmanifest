@@ -1,0 +1,17 @@
+{
+  "name": "Qingdao Weihai Trip",
+  "short_name": "Qingdao Trip",
+  "description": "แพลนทริป Qingdao และ Weihai 22-25 ก.ย.",
+  "lang": "th",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#BFE6F5",
+  "theme_color": "#BFE6F5",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}
