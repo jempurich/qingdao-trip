@@ -97,27 +97,26 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
 <script>
 (function () {
   var colors = ['#2A8CB5', '#E8735A', '#3FA57A', '#B8860B'];
-  var AM = 'https://uri.amap.com/search?keyword=';
   var H1 = 'https://surl.amap.com/1xiMflwEfDr';
   var H2 = 'https://www.trip.com/w/q8BEYreOQW2';
   var days = [
     { label: 'วันที่ 1', date: '22 ก.ย.', city: 'Qingdao', title: 'บินถึงแล้ว ชิงเต่า',
       flights: [{ code: 'SC4080', fc: 'BKK', ft: '02:50', fn: 'สุวรรณภูมิ', tc: 'TAO', tt: '08:25', tn: 'Qingdao Jiaodong', note: 'Economy · Boeing 737-800 · มีมื้ออาหาร' }],
       items: [
-        { time: '08:25', text: 'ถึงสนามบิน Qingdao Jiaodong', note: 'ผ่านตม. รับกระเป๋า แล้วเดินทางเข้าเมือง', map: ['青岛胶东国际机场'] },
+        { time: '08:25', text: 'ถึงสนามบิน Qingdao Jiaodong', note: 'ผ่านตม. รับกระเป๋า แล้วเดินทางเข้าเมือง', map: ['青岛胶东国际机场', 36.36196, 120.08800] },
         { time: 'ประมาณ 10:30', text: 'เข้าโรงแรมพัก', note: 'ถ้าห้องยังไม่พร้อม ฝากกระเป๋าไว้ก่อนแล้วไปหาอะไรกิน', hotelMap: true },
-        { time: 'ประมาณ 15:00', text: 'May Fourth Square', note: 'จัตุรัสริมทะเล มีประติมากรรมลูกบอลสีแดง May Wind ถ่ายรูปสวย', map: ['五四广场'] },
-        { time: 'ประมาณ 17:30', text: 'Olympic Sailing Center', note: 'ท่าเรือใบโอลิมปิก เดินเล่นชมเรือและพระอาทิตย์ตก', map: ['青岛奥帆中心'] },
+        { time: 'ประมาณ 15:00', text: 'May Fourth Square', note: 'จัตุรัสริมทะเล มีประติมากรรมลูกบอลสีแดง May Wind ถ่ายรูปสวย', map: ['五四广场', 36.06159, 120.37976] },
+        { time: 'ประมาณ 17:30', text: 'Olympic Sailing Center', note: 'ท่าเรือใบโอลิมปิก เดินเล่นชมเรือและพระอาทิตย์ตก', map: ['青岛奥帆中心', 36.05711, 120.39377] },
         { time: '', text: 'กลับโรงแรม นอน Qingdao' }
       ],
       hotel: 'Qingdao Haitian Grand Hotel', hotelUrl: H1, hotelLink: 'เปิดแผนที่ Amap' },
     { label: 'วันที่ 2', date: '23 ก.ย.', city: 'Qingdao', title: 'เดินเล่นเมืองเก่าริมทะเล',
       flights: [],
       items: [
-        { time: 'ประมาณ 09:30', text: 'Old Town', note: 'ย่านเมืองเก่า ถนนจงซาน (Zhongshan Road) อาคารสไตล์เยอรมัน', map: ['中山路', '青岛'] },
-        { time: 'ประมาณ 11:30', text: 'Zhanqiao', note: 'สะพานท่าเรือสัญลักษณ์เมืองชิงเต่า ยื่นออกไปในทะเล', map: ['栈桥'] },
-        { time: 'ประมาณ 14:00', text: 'Badaguan', note: 'ย่านวิลล่าเก่าร่มรื่น เดินถ่ายรูปชิลๆ', map: ['八大关'] },
-        { time: 'ประมาณ 16:30', text: 'Second Beach', note: 'ชายหาดใกล้ Badaguan นั่งพักรับลมทะเล', map: ['第二海水浴场'] },
+        { time: 'ประมาณ 09:30', text: 'Old Town', note: 'ย่านเมืองเก่า ถนนจงซาน (Zhongshan Road) อาคารสไตล์เยอรมัน', map: ['中山路', 36.06854, 120.31349] },
+        { time: 'ประมาณ 11:30', text: 'Zhanqiao', note: 'สะพานท่าเรือสัญลักษณ์เมืองชิงเต่า ยื่นออกไปในทะเล', map: ['栈桥', 36.06064, 120.31461] },
+        { time: 'ประมาณ 14:00', text: 'Badaguan', note: 'ย่านวิลล่าเก่าร่มรื่น เดินถ่ายรูปชิลๆ', map: ['八大关', 36.05379, 120.34565] },
+        { time: 'ประมาณ 16:30', text: 'Second Beach', note: 'ชายหาดใกล้ Badaguan นั่งพักรับลมทะเล', map: ['第二海水浴场', 36.04995, 120.34679] },
         { time: '', text: 'กลับโรงแรม นอน Qingdao', hotelMap: true }
       ],
       hotel: 'Qingdao Haitian Grand Hotel', hotelUrl: H1, hotelLink: 'เปิดแผนที่ Amap' },
@@ -126,10 +125,10 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
       items: [
         { time: 'ประมาณ 08:00-09:00', text: 'นั่งรถไฟความเร็วสูงไป Weihai', note: 'จองตั๋วล่วงหน้า และมาถึงสถานีก่อนเวลาสักครึ่งชั่วโมง' },
         { time: 'ประมาณ 11:30', text: 'ฝากกระเป๋าโรงแรม', note: 'Luxury Blue Horizon Hotel Weihai', hotelMap: true },
-        { time: 'ประมาณ 13:00', text: 'Torch 8th Street', note: 'ถนนคนเดินสายกิน ของกินและร้านเล็กๆ เยอะ', map: ['火炬八街'] },
-        { time: 'ประมาณ 15:00', text: 'International Bathing Beach', note: 'หาดในเมืองไหว่ไห่ น้ำทะเลใส', map: ['威海国际海水浴场'] },
-        { time: 'ประมาณ 16:00', text: 'ถนนเลียบทะเล', note: 'เดินหรือปั่นชมวิวทะเลตลอดทาง', map: ['威海滨海路'] },
-        { time: 'ประมาณ 17:00', text: 'Weihai Park', note: 'สวนริมทะเล เดินต่อไปดูพระอาทิตย์ตก', map: ['威海公园'] },
+        { time: 'ประมาณ 13:00', text: 'Torch 8th Street', note: 'ถนนคนเดินสายกิน ของกินและร้านเล็กๆ เยอะ', map: ['火炬八街', 37.52178, 122.02639] },
+        { time: 'ประมาณ 15:00', text: 'International Bathing Beach', note: 'หาดในเมืองไหว่ไห่ น้ำทะเลใส', map: ['威海国际海水浴场', 37.52866, 122.04171] },
+        { time: 'ประมาณ 16:00', text: 'ถนนเลียบทะเล', note: 'เดินหรือปั่นชมวิวทะเลตลอดทาง', map: ['威海海滨北路', 37.51092, 122.12133] },
+        { time: 'ประมาณ 17:00', text: 'Weihai Park', note: 'สวนริมทะเล เดินต่อไปดูพระอาทิตย์ตก', map: ['威海公园', 37.46149, 122.14057] },
         { time: 'ประมาณ 18:00', text: 'ดูพระอาทิตย์ตก', note: 'ช่วงปลายเดือนกันยายนพระอาทิตย์ตกราว 18:00 ไปรอก่อนสัก 20 นาที' },
         { time: '', text: 'กลับโรงแรม นอน Weihai 1 คืน', hotelMap: true }
       ],
@@ -141,7 +140,7 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
         { time: 'ประมาณ 10:30', text: 'เที่ยว/คาเฟ่อีกนิด', note: 'หาคาเฟ่ริมทะเลนั่งชิลๆ ก่อนกลับ' },
         { time: 'ประมาณ 12:00', text: 'นั่งรถไฟกลับ Qingdao', note: 'รับกระเป๋าจากโรงแรมก่อนไปสถานี' },
         { time: 'ประมาณ 15:00', text: 'ถึง Qingdao รับกระเป๋า', note: 'ถ้ามีเวลาเหลือ แวะกินข้าวเย็นก่อนไปสนามบิน' },
-        { time: 'ประมาณ 18:30', text: 'เดินทางไปสนามบิน', note: 'เครื่องออก 21:55 ควรถึงสนามบินอย่างน้อย 3 ชั่วโมงก่อนบิน', map: ['青岛胶东国际机场'] }
+        { time: 'ประมาณ 18:30', text: 'เดินทางไปสนามบิน', note: 'เครื่องออก 21:55 ควรถึงสนามบินอย่างน้อย 3 ชั่วโมงก่อนบิน', map: ['青岛胶东国际机场', 36.36196, 120.08800] }
       ],
       hotel: '' }
   ];
@@ -159,7 +158,7 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
 
   function mapUrl(it, d) {
     if (it.hotelMap && d.hotelUrl) return d.hotelUrl;
-    if (it.map) return AM + encodeURIComponent(it.map[0]) + (it.map[1] ? '&city=' + encodeURIComponent(it.map[1]) : '');
+    if (it.map) return 'https://uri.amap.com/marker?position=' + it.map[2] + ',' + it.map[1] + '&name=' + encodeURIComponent(it.map[0]) + '&coordinate=wgs84&callnative=1';
     return '';
   }
 
@@ -182,7 +181,7 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
         (it.time ? '<div class="tag">' + esc(it.time) + '</div>' : '') +
         '<div class="what">' + esc(it.text) + '</div>' +
         (it.note ? '<div class="note">' + esc(it.note) + '</div>' : '') +
-        (u ? '<a class="map" href="' + u + '" target="_blank" rel="noopener"' + (it.map && !(it.hotelMap && d.hotelUrl) ? ' data-kw="' + esc(it.map[0]) + '"' : '') + '>' + pin + 'เปิดใน Amap</a>' : '') +
+        (u ? '<a class="map" href="' + u + '" target="_blank" rel="noopener"' + '>' + pin + 'เปิดใน Amap</a>' : '') +
         '</div></div>';
     });
     h += '</div>';
@@ -195,25 +194,6 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
     el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
     try { localStorage.setItem('qd-day', i); } catch (e) {}
   }
-
-  // กดแล้วพยายามเปิดแอป Amap ก่อน ถ้าไม่เด้ง (ไม่ได้ติดตั้งแอป) ค่อยเปิดเว็บ
-  document.getElementById('day').addEventListener('click', function (e) {
-    var a = e.target.closest('a.map[data-kw]');
-    if (!a) return;
-    var ua = navigator.userAgent, kw = encodeURIComponent(a.dataset.kw), app = '';
-    if (/android/i.test(ua)) app = 'androidamap://poi?sourceApplication=qingdao-trip&keywords=' + kw + '&dev=0';
-    else if (/iphone|ipad|ipod/i.test(ua)) app = 'iosamap://poi?sourceApplication=qingdao-trip&name=' + kw;
-    if (!app) return;
-    e.preventDefault();
-    var left = false;
-    function onHide() { if (document.hidden) left = true; }
-    document.addEventListener('visibilitychange', onHide);
-    window.location.href = app;
-    setTimeout(function () {
-      document.removeEventListener('visibilitychange', onHide);
-      if (!left) window.open(a.href, '_blank', 'noopener');
-    }, 1800);
-  });
 
   document.getElementById('tabs').addEventListener('click', function (e) {
     var b = e.target.closest('.tab');
