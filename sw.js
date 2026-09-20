@@ -1,5 +1,5 @@
 ﻿// เพิ่มเลขเวอร์ชันทุกครั้งที่แก้ไฟล์ เพื่อให้เครื่องดึงของใหม่
-var CACHE = 'qd-trip-v3';
+var CACHE = 'qd-trip-v4';
 var CORE = ['./', './index.html', './manifest.webmanifest', './icons/icon-192.png', './icons/icon-512.png', './icons/apple-touch-icon.png'];
 
 self.addEventListener('install', function (e) {
