@@ -182,7 +182,7 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
         (it.time ? '<div class="tag">' + esc(it.time) + '</div>' : '') +
         '<div class="what">' + esc(it.text) + '</div>' +
         (it.note ? '<div class="note">' + esc(it.note) + '</div>' : '') +
-        (u ? '<a class="map" href="' + u + '" target="_blank" rel="noopener">' + pin + 'เปิดใน Amap</a>' : '') +
+        (u ? '<a class="map" href="' + u + '" target="_blank" rel="noopener"' + (it.map && !(it.hotelMap && d.hotelUrl) ? ' data-kw="' + esc(it.map[0]) + '"' : '') + '>' + pin + 'เปิดใน Amap</a>' : '') +
         '</div></div>';
     });
     h += '</div>';
@@ -195,6 +195,25 @@ h1{margin:14px 0 6px;font-family:'Mali',sans-serif;font-weight:700;font-size:38p
     el.style.animation = 'none'; void el.offsetWidth; el.style.animation = '';
     try { localStorage.setItem('qd-day', i); } catch (e) {}
   }
+
+  // กดแล้วพยายามเปิดแอป Amap ก่อน ถ้าไม่เด้ง (ไม่ได้ติดตั้งแอป) ค่อยเปิดเว็บ
+  document.getElementById('day').addEventListener('click', function (e) {
+    var a = e.target.closest('a.map[data-kw]');
+    if (!a) return;
+    var ua = navigator.userAgent, kw = encodeURIComponent(a.dataset.kw), app = '';
+    if (/android/i.test(ua)) app = 'androidamap://poi?sourceApplication=qingdao-trip&keywords=' + kw + '&dev=0';
+    else if (/iphone|ipad|ipod/i.test(ua)) app = 'iosamap://poi?sourceApplication=qingdao-trip&name=' + kw;
+    if (!app) return;
+    e.preventDefault();
+    var left = false;
+    function onHide() { if (document.hidden) left = true; }
+    document.addEventListener('visibilitychange', onHide);
+    window.location.href = app;
+    setTimeout(function () {
+      document.removeEventListener('visibilitychange', onHide);
+      if (!left) window.open(a.href, '_blank', 'noopener');
+    }, 1800);
+  });
 
   document.getElementById('tabs').addEventListener('click', function (e) {
     var b = e.target.closest('.tab');
